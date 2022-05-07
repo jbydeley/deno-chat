@@ -21,4 +21,10 @@ router
   app.use(router.routes())
   app.use(router.allowedMethods())
 
-  addEventListener('fetch', app.fetchEventHandler())
+  app.addEventListener(
+    'listen',
+    (e) => console.log('Listening on http://localhost:8080'),
+  );
+
+  await app.listen({ port: 8080 })
+  // addEventListener('fetch', app.fetchEventHandler())
